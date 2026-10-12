@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Preço e Tempo — Consumo Consciente (ODS 12)</title>
+  <meta name="description" content="Descubra quantas horas de trabalho suas compras realmente custam e aprenda formas simples de consumir com responsabilidade. Projeto acadêmico sobre o ODS 12 da ONU.">
+  <meta name="theme-color" content="#14301f">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%2314301f'/%3E%3Cpath d='M9 22c0-8 5-12 14-12 0 9-5 13-12 13' fill='%23f2c14e'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header" id="topo">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Preço e Tempo — início">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="9" fill="currentColor"/>
+          <path d="M9 22c0-8 5-12 14-12 0 9-5 13-12 13" fill="#f2c14e"/>
+          <path d="M9 24c3-5 6-8 10-10" stroke="#14301f" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+        </svg>
+        <span>Preço e Tempo</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="sr-only">Abrir menu</span>
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+
+      <nav class="main-nav" id="menu-principal" aria-label="Navegação principal">
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#calculadora">Calculadora de compras</a></li>
+          <li><a href="#dicas">Dicas sustentáveis</a></li>
+          <li><a href="#ods12">Sobre o ODS 12</a></li>
+          <li><a href="#projeto">Sobre o projeto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- HERO -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1 id="hero-titulo">Seu dinheiro tem preço. Seu tempo também.</h1>
+          <p class="lead">Descubra quantas horas de trabalho suas compras realmente custam e aprenda formas simples de consumir com responsabilidade, reduzir o desperdício e causar um impacto positivo no planeta.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#calculadora">Calcular minha compra</a>
+            <a class="btn btn-ghost" href="#dicas">Descobrir dicas sustentáveis</a>
+          </div>
+        </div>
+
+        <figure class="hero-art" aria-label="Ilustração: etiqueta de preço com relógio, folhas e cesta reutilizável">
+          <svg viewBox="0 0 440 400" role="img" aria-labelledby="art-title">
+            <title id="art-title">Etiqueta de preço com um relógio, folhas e uma cesta reutilizável</title>
+            <circle cx="220" cy="206" r="176" fill="#dcebd2"/>
+            <circle cx="220" cy="206" r="176" fill="none" stroke="#14301f" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
+            <!-- tag -->
+            <g class="art-tag" transform="rotate(-8 220 150)">
+              <path d="M110 70h170a14 14 0 0 1 10 4l62 62a14 14 0 0 1 0 20l-62 62a14 14 0 0 1-10 4H110a14 14 0 0 1-14-14V84a14 14 0 0 1 14-14z" fill="#fffdf5" stroke="#14301f" stroke-width="3"/>
+              <circle cx="318" cy="146" r="9" fill="#dcebd2" stroke="#14301f" stroke-width="3"/>
+              <text x="118" y="122" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="22" fill="#14301f">R$ 300,00</text>
+              <path d="M118 140h150" stroke="#14301f" stroke-width="2" stroke-dasharray="4 6"/>
+              <text x="118" y="176" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="40" fill="#1f7a45">20 h</text>
+              <text x="118" y="198" font-family="Public Sans, sans-serif" font-size="13" fill="#3b5646">de trabalho</text>
+            </g>
+            <!-- clock -->
+            <g transform="translate(300 292)">
+              <circle r="52" fill="#f2c14e" stroke="#14301f" stroke-width="3"/>
+              <circle r="40" fill="#fffdf5" stroke="#14301f" stroke-width="2"/>
+              <g stroke="#14301f" stroke-width="3" stroke-linecap="round">
+                <path d="M0 -32v6M32 0h-6M0 32v-6M-32 0h6"/>
+              </g>
+              <path class="clock-min" d="M0 0V-28" stroke="#14301f" stroke-width="4" stroke-linecap="round"/>
+              <path d="M0 0l16 10" stroke="#1f7a45" stroke-width="5" stroke-linecap="round"/>
+              <circle r="4" fill="#14301f"/>
+            </g>
+            <!-- basket -->
+            <g transform="translate(70 262)">
+              <path d="M10 40h110l-12 74a10 10 0 0 1-10 8H32a10 10 0 0 1-10-8z" fill="#c6a46c" stroke="#14301f" stroke-width="3"/>
+              <path d="M34 40c0-34 52-34 52 0" fill="none" stroke="#14301f" stroke-width="4" stroke-linecap="round"/>
+              <path d="M38 62v46M65 62v46M92 62v46" stroke="#14301f" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M52 42c-4-26 6-42 26-48 4 24-6 42-26 48z" fill="#2f9d5b" stroke="#14301f" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M54 40c6-14 12-24 20-34" stroke="#14301f" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </g>
+            <!-- leaves -->
+            <g transform="translate(340 60) rotate(20)">
+              <path d="M0 40C-6 12 10-8 40 -10c2 30-14 50-40 50z" fill="#2f9d5b" stroke="#14301f" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M0 40C10 24 20 10 34 -2" stroke="#14301f" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </g>
+            <g transform="translate(50 120) rotate(-30) scale(.8)">
+              <path d="M0 40C-6 12 10-8 40 -10c2 30-14 50-40 50z" fill="#8cc152" stroke="#14301f" stroke-width="3.5" stroke-linejoin="round"/>
+            </g>
+          </svg>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CALCULADORA -->
+    <section class="section calc-section" id="calculadora" aria-labelledby="calc-titulo">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="calc-titulo">Quanto do seu tempo essa compra custa?</h2>
+          <p>Informe o preço do produto e quanto você ganha. A calculadora converte o valor em horas de trabalho para ajudar você a decidir com calma.</p>
+        </div>
+
+        <div class="calc-layout">
+          <form class="calc-form card" id="calc-form" novalidate aria-describedby="calc-aviso">
+            <div class="field">
+              <label for="preco">Preço do produto (R$)</label>
+              <div class="input-prefix">
+                <span aria-hidden="true">R$</span>
+                <input type="text" id="preco" name="preco" inputmode="decimal" autocomplete="off" placeholder="300,00" aria-describedby="preco-erro" required>
+              </div>
+              <p class="error" id="preco-erro" role="alert" hidden></p>
+            </div>
+
+            <fieldset class="field mode-field">
+              <legend>Como você prefere informar sua renda?</legend>
+              <div class="segmented">
+                <input type="radio" name="modo" id="modo-hora" value="hora" checked>
+                <label for="modo-hora">Valor por hora</label>
+                <input type="radio" name="modo" id="modo-mes" value="mes">
+                <label for="modo-mes">Renda mensal</label>
+              </div>
+            </fieldset>
+
+            <div class="field" id="grupo-hora">
+              <label for="salario-hora">Seu valor por hora (R$)</label>
+              <div class="input-prefix">
+                <span aria-hidden="true">R$</span>
+                <input type="text" id="salario-hora" name="salario-hora" inputmode="decimal" autocomplete="off" placeholder="15,00" aria-describedby="hora-erro">
+              </div>
+              <p class="error" id="hora-erro" role="alert" hidden></p>
+            </div>
+
+            <div id="grupo-mes" hidden>
+              <div class="field">
+                <label for="renda-mensal">Sua renda mensal (R$)</label>
+                <div class="input-prefix">
+                  <span aria-hidden="true">R$</span>
+                  <input type="text" id="renda-mensal" name="renda-mensal" inputmode="decimal" autocomplete="off" placeholder="2.640,00" aria-describedby="renda-erro">
+                </div>
+                <p class="error" id="renda-erro" role="alert" hidden></p>
+              </div>
+              <div class="field">
+                <label for="horas-mes">Horas trabalhadas por mês</label>
+                <input type="text" id="horas-mes" name="horas-mes" inputmode="decimal" autocomplete="off" placeholder="176" aria-describedby="horas-dica horas-erro">
+                <p class="hint" id="horas-dica">Uma jornada de 8 h por dia, 22 dias no mês, resulta em cerca de 176 horas.</p>
+                <p class="error" id="horas-erro" role="alert" hidden></p>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">
+                <span class="btn-label">Calcular</span>
+                <span class="spinner" aria-hidden="true"></span>
+              </button>
+              <button class="btn btn-ghost" type="reset" id="btn-limpar">Limpar</button>
+            </div>
+
+            <p class="note" id="calc-aviso">Estimativa educativa: o cálculo não considera impostos, descontos, contas ou outras despesas pessoais.</p>
+          </form>
+
+          <div class="result-wrap" aria-live="polite" aria-atomic="true">
+            <div class="result-empty card" id="resultado-vazio">
+              <svg viewBox="0 0 64 64" aria-hidden="true" width="64" height="64"><circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="3 7" stroke-linecap="round"/><path d="M32 18v15l9 6" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p>Preencha os campos e clique em <strong>Calcular</strong>. O resultado aparece aqui.</p>
+            </div>
+
+            <article class="result card" id="resultado" hidden>
+              <h3 id="res-produto" class="res-produto">Sua compra</h3>
+              <p class="res-big"><span id="res-horas">0 h</span></p>
+              <p class="res-sentence" id="res-frase"></p>
+
+              <dl class="res-grid">
+                <div><dt>Preço do produto</dt><dd id="res-preco">—</dd></div>
+                <div><dt>Seu valor por hora</dt><dd id="res-hora">—</dd></div>
+                <div><dt>Em jornadas de 8 h</dt><dd id="res-dias">—</dd></div>
+                <div id="res-share-box"><dt>Das suas horas no mês</dt><dd id="res-share">—</dd></div>
+              </dl>
+
+              <p class="res-footnote" id="res-nota">Horas de trabalho não são tempo corrido: elas se espalham pelos dias em que você trabalha.</p>
+
+              <div class="pause">
+                <h4>Antes de comprar, pergunte-se</h4>
+                <ul>
+                  <li>Eu realmente preciso deste produto?</li>
+                  <li>Vou usá-lo com frequência?</li>
+                  <li>Existe uma alternativa mais sustentável?</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DICAS -->
+    <section class="section tips-section" id="dicas" aria-labelledby="dicas-titulo">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="dicas-titulo">Sete hábitos para consumir melhor</h2>
+          <p>Cada cartão traz uma ideia e uma ação que você pode colocar em prática hoje. Toque em “Por que importa” para ler mais.</p>
+        </div>
+
+        <ul class="tips-grid">
+          <li class="tip">
+            <svg class="tip-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 18h28l-3 22H13z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M17 18c0-9 14-9 14 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+            <h3>Compre só o que precisa</h3>
+            <p>Planeje as compras e compare alternativas antes de decidir. Compras por impulso costumam virar objetos esquecidos.</p>
+            <p class="action"><strong>Faça agora:</strong> escreva uma lista antes da próxima ida ao mercado ou à loja.</p>
+            <details><summary>Por que importa</summary><p>Cada produto exige recursos para ser fabricado e transportado. Comprar menos e com intenção reduz o que vira lixo e o que pesa no seu orçamento.</p></details>
+          </li>
+          <li class="tip">
+            <svg class="tip-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M30 8l10 6-4 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 14C32 10 18 12 12 22M18 40L8 34l4-10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 34c8 4 22 2 28-8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+            <h3>Reutilize e conserte</h3>
+            <p>Conserte o que quebrou, doe o que ainda funciona e dê uma segunda vida aos objetos.</p>
+            <p class="action"><strong>Faça agora:</strong> escolha um item quebrado em casa e procure um conserto antes de substituí-lo.</p>
+            <details><summary>Por que importa</summary><p>Prolongar a vida útil de um produto adia a necessidade de fabricar outro e evita que ele chegue ao descarte antes da hora.</p></details>
+          </li>
+          <li class="tip">
+            <svg class="tip-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 16h24l-2 24H14z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M18 16V10h12v6" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M19 26h10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+            <h3>Reduza embalagens</h3>
+            <p>Prefira sacolas reutilizáveis, recipientes recarregáveis e produtos com menos embalagem desnecessária.</p>
+            <p class="action"><strong>Faça agora:</strong> deixe uma sacola de pano junto à porta ou dentro da bolsa.</p>
+            <details><summary>Por que importa</summary><p>Muitas embalagens são usadas por minutos e descartadas. Evitar a embalagem desnecessária é a forma mais simples de gerar menos resíduo.</p></details>
+          </li>
+          <li class="tip">
+            <svg class="tip-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 10h32v8H8zM10 18h28v22H10z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M18 26h12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+            <h3>Descarte e recicle corretamente</h3>
+            <p>Separe os materiais recicláveis e siga as orientações da coleta do seu município.</p>
+            <p class="action"><strong>Faça agora:</strong> separe em casa o que é seco (papel, plástico, metal, vidro) do que é orgânico.</p>
+            <details><summary>Por que importa</summary><p>Materiais limpos e separados têm mais chance de serem reaproveitados. As regras mudam de cidade para cidade, por isso vale consultar a prefeitura ou a cooperativa local.</p></details>
+          </li>
+          <li class="tip">
+            <svg class="tip-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6l14 6v10c0 9-6 16-14 20C16 38 10 31 10 22V12z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M17 24l5 5 9-10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3>Escolha produtos duráveis</h3>
+            <p>Priorize qualidade, durabilidade e facilidade de reparo. O mais barato nem sempre é o que custa menos no fim.</p>
+            <p class="action"><strong>Faça agora:</strong> antes de comprar, pesquise a garantia e se há peças de reposição.</p>
+            <details><summary>Por que importa</summary><p>Um produto que dura anos pode custar menos por uso e gera menos resíduo do que vários substitutos de vida curta.</p></details>
+          </li>
+          <li class="tip">
+            <svg class="tip-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 14c-8-8-18 0-12 12 4 8 12 14 12 14s8-6 12-14c6-12-4-20-12-12z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M24 14c0-4 2-7 6-8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+            <h3>Evite o desperdício de comida</h3>
+            <p>Planeje as refeições, guarde os alimentos do jeito certo e aproveite as sobras com criatividade.</p>
+            <p class="action"><strong>Faça agora:</strong> olhe a geladeira e use primeiro o que vence antes.</p>
+            <details><summary>Por que importa</summary><p>Quando a comida vai para o lixo, também se perdem a água, a energia e o trabalho usados para produzi-la e transportá-la.</p></details>
+          </li>
+          <li class="tip">
+            <svg class="tip-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="17" cy="24" r="9" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="31" cy="24" r="9" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+            <h3>Pense antes de comprar</h3>
+            <p>Considere emprestar, alugar, compartilhar ou comprar de segunda mão antes de adquirir algo novo.</p>
+            <p class="action"><strong>Faça agora:</strong> espere 48 horas antes de fechar uma compra que não é urgente.</p>
+            <details><summary>Por que importa</summary><p>Muitos itens são usados poucas vezes. Compartilhar ou usar o que já existe dá o mesmo resultado com menos produção e menos gasto.</p></details>
+          </li>
+        </ul>
+
+        <!-- CHECKLIST -->
+        <section class="checklist card" id="checklist" aria-labelledby="check-titulo">
+          <div class="check-head">
+            <h3 id="check-titulo">Meu checklist de hábitos sustentáveis</h3>
+            <p>Seis hábitos simples para levar para o dia a dia e fazer um consumo mais consciente.</p>
+          </div>
+
+          <ul class="check-list">
+            <li>Planejar as compras antes de sair.</li>
+            <li>Evitar uma compra desnecessária.</li>
+            <li>Usar sacola ou recipiente reutilizável.</li>
+            <li>Consertar ou reutilizar um item em vez de trocá-lo.</li>
+            <li>Separar o lixo corretamente.</li>
+            <li>Evitar desperdiçar comida.</li>
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <!-- ODS 12 -->
+    <section class="section sdg-section" id="ods12" aria-labelledby="ods-titulo">
+      <div class="container sdg-grid">
+        <div class="sdg-badge-col">
+          <div class="sdg-badge" role="img" aria-label="Ilustração do número 12, representando o ODS 12">
+            <span class="sdg-num">12</span>
+            <span class="sdg-name">Consumo e produção responsáveis</span>
+          </div>
+          <p class="sdg-disclaimer">Ilustração criada para este projeto. Não é o logotipo oficial da ONU, e este site não possui vínculo oficial com as Nações Unidas.</p>
+        </div>
+
+        <div class="sdg-copy">
+          <h2 id="ods-titulo">O que é o ODS 12?</h2>
+          <p>O Objetivo de Desenvolvimento Sustentável 12 faz parte da Agenda 2030 das Nações Unidas e busca <strong>assegurar padrões de produção e de consumo sustentáveis</strong>.</p>
+          <h3>Por que o consumo responsável importa</h3>
+          <ul class="ticks">
+            <li>Reduz a geração de resíduos.</li>
+            <li>Usa os recursos naturais com mais eficiência.</li>
+            <li>Incentiva a reciclagem, o reuso e o reparo.</li>
+            <li>Diminui o desperdício de alimentos.</li>
+            <li>Leva a decisões de compra mais informadas.</li>
+            <li>Estimula sistemas de produção e consumo mais sustentáveis.</li>
+          </ul>
+          <div class="callout">
+            <h3>Ninguém muda isso sozinho</h3>
+            <p>As escolhas individuais têm valor, mas a mudança duradoura também depende de empresas, governos, instituições e comunidades: produtos mais duráveis e fáceis de consertar, políticas públicas, coleta seletiva e gestão de resíduos. Consumir melhor é uma parte do caminho, não a responsabilidade inteira.</p>
+          </div>
+          <p class="sources">Fonte oficial: <a href="https://brasil.un.org/pt-br/sdgs/12" target="_blank" rel="noopener noreferrer">ONU Brasil — ODS 12</a> · <a href="https://sdgs.un.org/goals/goal12" target="_blank" rel="noopener noreferrer">UN Sustainable Development Goals — Goal 12 (inglês)</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACTO -->
+    <section class="section impact-section" aria-labelledby="impacto-titulo">
+      <div class="container impact-inner">
+        <h2 id="impacto-titulo">Pausar antes de comprar já é uma escolha consciente</h2>
+        <p>Ver uma compra em horas de trabalho ajuda a parar, avaliar se o produto é necessário e comparar alternativas mais sustentáveis. O objetivo não é gerar culpa, nem julgar renda, profissão ou escolhas, e sim abrir espaço para decidir com informação.</p>
+        <p class="impact-cta">Que tal fazer uma escolha mais consciente hoje?</p>
+        <a class="btn btn-primary" href="#calculadora">Testar uma compra agora</a>
+      </div>
+    </section>
+
+    <!-- PROJETO -->
+    <section class="section project-section" id="projeto" aria-labelledby="projeto-titulo">
+      <div class="container project-grid">
+        <div>
+          <h2 id="projeto-titulo">Sobre o projeto</h2>
+          <p>Este site foi desenvolvido como trabalho acadêmico universitário para promover a conscientização sobre o ODS 12 e o consumo responsável. Ele reúne uma calculadora que transforma preço em horas de trabalho, dicas práticas e um checklist de hábitos.</p>
+          <p>Todo o conteúdo tem finalidade educativa. A calculadora é uma estimativa simples e não substitui uma análise financeira.</p>
+        </div>
+        <dl class="student-card card">
+          <div><dt>Aluno</dt><dd>Matheus Willian Miguel Bertuzo</dd></div>
+          <div><dt>RGM</dt><dd>44071060</dd></div>
+          <div><dt>Projeto acadêmico</dt><dd>Consumo Sustentável e Produção Responsável — ODS 12</dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-brand">Preço e Tempo</p>
+        <p class="footer-msg">Consumir com consciência é cuidar do seu tempo, do seu dinheiro e do planeta.</p>
+      </div>
+      <nav aria-label="Navegação do rodapé">
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#calculadora">Calculadora de compras</a></li>
+          <li><a href="#dicas">Dicas sustentáveis</a></li>
+          <li><a href="#ods12">Sobre o ODS 12</a></li>
+          <li><a href="#projeto">Sobre o projeto</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container footer-legal">
+      <p>© <span id="ano">2026</span> Matheus Willian Miguel Bertuzo — RGM 44071060. Projeto acadêmico sem fins comerciais, sem vínculo oficial com a ONU.</p>
+      <a href="#topo">Voltar ao topo</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
