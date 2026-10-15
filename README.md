@@ -28,7 +28,7 @@ Depois acesse http://localhost:8000.
 | --- | --- |
 | `index.html` | Estrutura semântica e todo o conteúdo em português do Brasil |
 | `style.css` | Design mobile-first, responsivo, com foco visível e `prefers-reduced-motion` |
-| `script.js` | Calculadora (lógica pura + interface), menu móvel, destaque de seção e checklist |
+| `script.js` | Calculadora (lógica pura + interface), menu móvel e destaque de seção, mais os dados e a lógica de problemas, quiz, simuladores e compromisso |
 
 ## Funcionalidades e objetivo educativo
 
@@ -36,7 +36,11 @@ Depois acesse http://localhost:8000.
 | --- | --- |
 | Calculadora de compras | Converte preço em horas de trabalho (preço ÷ valor por hora; ou renda mensal ÷ horas no mês). Valida entradas, formata em R$, mostra jornadas de 8 h e % das horas do mês. Incentiva a pausa antes de comprar. |
 | Dicas sustentáveis | Sete cartões com explicação, ação imediata e detalhe expansível. |
-| Checklist de hábitos | Seis hábitos sustentáveis em lista simples, apenas texto. |
+| Problemas do ODS 12 | Cinco cartões que abrem, com dado da ONU, fonte, "por que é um problema" e uma ação para marcar. |
+| Quiz "Verdadeiro ou falso?" | Cinco afirmações, uma por vez, com barra de progresso, explicação imediata e placar final. |
+| Simulador de descartáveis | Três controles (copos, sacolas, garrafas) que mostram a contagem de itens por ano, em tempo real. |
+| Custo por uso | Preço da roupa ÷ número de usos, com mensagem curta e o equivalente em tempo de trabalho (usa o valor por hora da calculadora). |
+| Meu compromisso | Reúne as ações marcadas e copia um texto pronto para compartilhar. |
 | Sobre o ODS 12 | Explica o objetivo, por que importa e a responsabilidade compartilhada entre indivíduos, empresas e governos, com links para fontes oficiais da ONU. |
 | Seção de impacto | Liga a calculadora ao consumo consciente, sem culpa. |
 | Sobre o projeto | Dados do aluno e finalidade acadêmica. Nenhuma instituição foi inventada. |
@@ -51,7 +55,8 @@ Depois acesse http://localhost:8000.
 ## Observações
 
 - O "12" na seção ODS é uma ilustração própria, não o logotipo oficial. O site declara não ter vínculo com a ONU.
-- Nenhuma estatística foi incluída, para evitar dados sem fonte verificada.
+- Os números da seção "Os problemas que o ODS 12 quer resolver" vêm da ONU e aparecem com a fonte e o link em cada cartão ([ONU – Objetivo 12](https://www.un.org/sustainabledevelopment/sustainable-consumption-production/)). Nenhum outro dado estatístico foi incluído, e os valores de referência dos simuladores (como R$ 5 por uso) são apenas ilustrativos.
+- Nada que a pessoa digita ou marca é salvo ou enviado: tudo fica na memória da página.
 - O cálculo é uma estimativa educativa e ignora impostos, descontos e outras despesas.
 
 ## Fonte

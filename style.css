@@ -223,19 +223,6 @@ ul { padding: 0; margin: 0; list-style: none; }
 .tip details[open] summary::before { content: "–"; }
 .tip details p { color: var(--ink-soft); margin: 0; }
 
-.checklist { margin-top: 48px; padding: 28px 24px; background: var(--ink); color: #f1f6ec; border-color: var(--ink); }
-.checklist h3 { color: #fff; }
-.checklist .check-head p { color: #c3d4c4; }
-.check-head { margin-bottom: 20px; }
-.check-head p { margin: 0; }
-.check-list { display: grid; gap: 10px; }
-.check-list li {
-  position: relative; min-height: 56px; padding: 14px 16px 14px 44px; display: flex; align-items: center;
-  background: rgba(255, 255, 255, .08); border: 1.5px solid rgba(255, 255, 255, .18);
-  border-radius: var(--r-sm);
-}
-.check-list li::before { content: ""; position: absolute; left: 18px; top: 50%; width: 10px; height: 10px; margin-top: -5px; border-radius: 50% 0 50% 50%; background: var(--sun); }
-
 /* ---------- ODS 12 ---------- */
 .sdg-section { background: var(--paper-2); }
 .sdg-grid { display: grid; gap: 36px; }
@@ -281,6 +268,209 @@ ul { padding: 0; margin: 0; list-style: none; }
 .footer-legal { margin-top: 32px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .15); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: .88rem; }
 .footer-legal p { margin: 0; }
 
+/* ==========================================================
+   Novas seções: Problemas · Quiz · Simuladores · Compromisso
+   Mobile first: vale a partir de 320px; telas maiores em min-width.
+   Reaproveita os tokens do :root, .card, .btn, .field e .sources.
+   ========================================================== */
+
+/* ---------- Problemas do ODS 12 (cartões que abrem) ---------- */
+.problems-grid { display: grid; gap: 14px; align-items: start; }
+.problem {
+  background: var(--card); border: 1.5px solid var(--line); border-radius: var(--r-md);
+  box-shadow: var(--shadow); transition: border-color .2s ease;
+}
+.problem.is-open { border-color: var(--ink); }
+.problem-heading { margin: 0; font: inherit; }
+.problem-toggle {
+  display: flex; align-items: center; gap: 14px; width: 100%; min-height: 72px;
+  margin: 0; padding: 16px 16px 16px 18px;
+  background: transparent; border: 0; border-radius: var(--r-md);
+  color: inherit; font: inherit; text-align: left; cursor: pointer; touch-action: manipulation;
+}
+.problem-toggle:hover { background: var(--paper); }
+.problem-icon { flex: none; width: 44px; height: 44px; color: var(--leaf); }
+.problem.is-done .problem-icon { color: var(--leaf-dark); }
+.problem-text { flex: 1; min-width: 0; }
+.problem-title { display: block; font: 700 1.15rem/1.2 var(--font-display); letter-spacing: -.01em; }
+.problem-summary { display: block; margin-top: 2px; font-size: .95rem; line-height: 1.4; color: var(--ink-soft); }
+.problem-chevron {
+  flex: none; width: 12px; height: 12px; margin-right: 6px;
+  border: solid var(--ink); border-width: 0 3px 3px 0;
+  transform: translateY(-3px) rotate(45deg); transition: transform .25s ease;
+}
+.problem.is-open .problem-chevron { transform: translateY(3px) rotate(-135deg); }
+
+/* Painel: a altura anima por 0fr → 1fr; fechado, fica fora do foco (visibility). */
+.problem-panel {
+  display: grid; grid-template-rows: 0fr; visibility: hidden;
+  transition: grid-template-rows .3s ease, visibility 0s linear .3s;
+}
+.problem.is-open .problem-panel { grid-template-rows: 1fr; visibility: visible; transition: grid-template-rows .3s ease, visibility 0s; }
+.problem-panel-inner { min-height: 0; overflow: hidden; padding: 0 18px; opacity: 0; transition: opacity .25s ease; }
+.problem.is-open .problem-panel-inner { opacity: 1; }
+.problem-body { padding: 2px 0 20px; }
+
+.problem-stat { margin: 0 0 12px; }
+.stat-pre { display: block; font-size: .95rem; color: var(--ink-soft); }
+.stat-num {
+  display: block; font: 800 clamp(2.2rem, 9vw, 3rem)/1.05 var(--font-display);
+  letter-spacing: -.03em; color: var(--leaf-dark); font-variant-numeric: tabular-nums;
+}
+.stat-text { display: block; }
+.problem-source { margin: 0 0 14px; font-size: .88rem; color: var(--ink-soft); }
+.problem-why {
+  margin: 0 0 16px; padding: 10px 12px; font-size: .98rem;
+  background: var(--paper); border-left: 4px solid var(--sun-dark); border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+.problem-why strong { display: block; font-family: var(--font-display); margin-bottom: 2px; }
+
+/* Caixa "Vou fazer isso": a área toda é clicável (mín. 52px de altura). */
+.pledge {
+  display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 10px 14px; margin: 0;
+  background: var(--paper-2); border: 2px solid var(--line); border-radius: var(--r-sm);
+  cursor: pointer; touch-action: manipulation; transition: background-color .15s ease, border-color .15s ease;
+}
+.pledge:hover { border-color: var(--leaf); }
+.pledge.is-checked { background: #fbefc7; border-color: var(--sun-dark); }
+.pledge input {
+  appearance: none; -webkit-appearance: none; flex: none; display: grid; place-content: center;
+  width: 28px; height: 28px; margin: 0; background: #fff;
+  border: 2.5px solid var(--ink); border-radius: 8px; cursor: pointer;
+  transition: background-color .15s ease;
+}
+.pledge input::after {
+  content: ""; width: 14px; height: 8px; margin-top: -3px;
+  border: solid var(--ink); border-width: 0 0 3.5px 3.5px;
+  transform: rotate(-45deg) scale(0); transition: transform .18s cubic-bezier(.2, .9, .3, 1.4);
+}
+.pledge input:checked { background: var(--sun); }
+.pledge input:checked::after { transform: rotate(-45deg) scale(1); }
+.pledge input:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+.sources-box { margin-top: 36px; padding: 20px 22px; border-left: 6px solid var(--leaf); background: var(--paper-2); border-radius: 0 var(--r-md) var(--r-md) 0; }
+.sources-box h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.sources-box ul { display: grid; gap: 8px; font-size: .95rem; color: var(--ink-soft); }
+.sources-box a { display: inline-block; padding-block: 2px; }
+
+/* ---------- Quiz (reaproveita o fundo escuro da calculadora) ---------- */
+.quiz { max-width: 720px; }
+.quiz-top { margin-bottom: 20px; }
+.quiz-count { margin: 0 0 8px; font-size: .92rem; font-weight: 600; color: var(--ink-soft); }
+.progress { height: 12px; overflow: hidden; background: var(--paper-2); border: 1.5px solid var(--line); border-radius: 999px; }
+.progress-fill {
+  display: block; width: 100%; height: 100%; background: var(--leaf);
+  transform: scaleX(0); transform-origin: left; transition: transform .45s cubic-bezier(.2, .8, .3, 1);
+}
+.quiz-statement { font-size: clamp(1.25rem, 4.5vw, 1.6rem); line-height: 1.25; margin-bottom: 20px; }
+.quiz-statement:focus { outline: none; }
+.quiz-options { display: grid; gap: 12px; }
+.quiz-btn { min-height: 56px; font-size: 1.1rem; background: #fff; }
+.quiz-btn[disabled] { opacity: 1; cursor: default; }
+.quiz-btn.is-correct { background: #e1f2dc; border-color: var(--leaf-dark); }
+.quiz-btn.is-correct::before { content: "✓"; font-weight: 800; color: var(--leaf-dark); }
+.quiz-btn.is-wrong { background: #fdeceb; border-color: var(--danger); }
+.quiz-btn.is-wrong::before { content: "✕"; font-weight: 800; color: var(--danger); }
+.quiz-btn.is-correct, .quiz-btn.is-wrong { animation: pop .4s cubic-bezier(.2, .9, .3, 1.2); }
+.quiz-feedback { margin-top: 18px; padding: 14px 16px; border-left: 6px solid var(--line); border-radius: 0 var(--r-sm) var(--r-sm) 0; background: var(--paper); }
+.quiz-feedback:focus { outline: none; }
+.quiz-feedback.is-right { background: #e9f5e4; border-color: var(--leaf); }
+.quiz-feedback.is-miss { background: #fdf1e3; border-color: var(--sun-dark); }
+.quiz-feedback.is-right, .quiz-feedback.is-miss { animation: pop .35s cubic-bezier(.2, .9, .3, 1.2); }
+.quiz-next { margin-top: 18px; width: 100%; }
+.quiz-next[hidden] { display: none; } /* .btn define display e vence o atributo hidden */
+.quiz-score { font: 800 clamp(1.5rem, 6vw, 2rem)/1.15 var(--font-display); color: var(--leaf-dark); margin-bottom: 8px; }
+.quiz-message { font-size: 1.12rem; margin-bottom: 22px; }
+.quiz-final .btn { width: 100%; }
+
+/* ---------- Simuladores ---------- */
+.tools-grid { display: grid; gap: 24px; align-items: start; }
+.sim-card > h3, .cpu-card > h3 { margin-bottom: 6px; }
+.sim-card .hint, .cpu-card .hint { margin: 0 0 20px; }
+
+.range-field { margin-bottom: 14px; }
+.range-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.range-head label { font-weight: 600; }
+.range-value { font: 800 1.5rem/1 var(--font-display); color: var(--leaf-dark); font-variant-numeric: tabular-nums; }
+.range {
+  --fill: 0%;
+  -webkit-appearance: none; appearance: none; display: block; width: 100%; height: 44px;
+  margin: 0; background: transparent; cursor: pointer; touch-action: pan-y;
+}
+.range::-webkit-slider-runnable-track {
+  height: 12px; border-radius: 999px; box-shadow: inset 0 0 0 1.5px var(--ink);
+  background: linear-gradient(to right, var(--leaf) var(--fill), var(--paper-2) var(--fill));
+}
+.range::-moz-range-track {
+  height: 12px; border-radius: 999px; box-shadow: inset 0 0 0 1.5px var(--ink);
+  background: linear-gradient(to right, var(--leaf) var(--fill), var(--paper-2) var(--fill));
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none; box-sizing: border-box; width: 30px; height: 30px; margin-top: -9px;
+  background: var(--sun); border: 3px solid var(--ink); border-radius: 50%;
+  box-shadow: 0 3px 0 var(--ink); transition: transform .15s ease;
+}
+.range::-moz-range-thumb {
+  box-sizing: border-box; width: 30px; height: 30px;
+  background: var(--sun); border: 3px solid var(--ink); border-radius: 50%;
+  box-shadow: 0 3px 0 var(--ink);
+}
+.range:active::-webkit-slider-thumb { transform: scale(1.12); }
+.range:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; border-radius: 999px; }
+
+.sim-totals { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 10px; margin: 20px 0 16px; }
+.sim-totals div { background: var(--paper); border-radius: var(--r-sm); padding: 12px 14px; }
+.sim-totals dt { font-size: .85rem; color: var(--ink-soft); }
+.sim-totals dd {
+  display: inline-block; margin: 2px 0 0; font: 800 clamp(1.5rem, 7vw, 2rem)/1.1 var(--font-display);
+  color: var(--leaf-dark); font-variant-numeric: tabular-nums; letter-spacing: -.02em;
+}
+.sim-totals dd.bump { animation: bump .3s ease; }
+@keyframes bump { 40% { transform: translateY(-3px) scale(1.06); } }
+.sim-sentence { margin: 0; padding: 14px 16px; font-size: 1.05rem; background: var(--paper-2); border-left: 6px solid var(--sun-dark); border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+
+.cpu-card .field input[type="text"] { max-width: 100%; }
+.cpu-result { margin-top: 4px; padding: 16px 18px; background: var(--paper); border-radius: var(--r-sm); border-left: 6px solid var(--sun-dark); }
+.cpu-empty { margin: 0; color: var(--ink-soft); }
+.cpu-big { margin: 0; font: 800 clamp(1.9rem, 8vw, 2.6rem)/1.05 var(--font-display); color: var(--leaf-dark); letter-spacing: -.02em; overflow-wrap: anywhere; }
+.cpu-calc { margin: 2px 0 12px; font-size: .92rem; color: var(--ink-soft); }
+.cpu-message { margin: 0 0 8px; font: 700 1.15rem/1.3 var(--font-display); }
+.cpu-work { margin: 0; font-size: .95rem; color: var(--ink-soft); }
+.cpu-card .note { margin-top: 14px; }
+
+/* ---------- Meu compromisso ---------- */
+.pledge-section { background: var(--paper-2); }
+.pledge-grid { display: grid; gap: 24px; align-items: start; }
+.pledge-intro p { color: var(--ink-soft); max-width: 46ch; }
+.pledge-card h3 { margin-bottom: 12px; }
+.pledge-list { display: grid; gap: 8px; margin-bottom: 4px; }
+.pledge-list li { position: relative; padding-left: 30px; }
+.pledge-list li::before {
+  content: ""; position: absolute; left: 2px; top: .55em; width: 10px; height: 10px;
+  border-radius: 50% 0 50% 50%; background: var(--leaf);
+}
+.pledge-actions { margin-top: 20px; }
+.pledge-copy { width: 100%; }
+.btn.pledge-copy[disabled] { opacity: .5; cursor: not-allowed; box-shadow: 0 4px 0 var(--ink); }
+.pledge-status { min-height: 1.65em; margin: 12px 0 0; font-weight: 600; }
+.pledge-status.is-ok { color: var(--leaf-dark); }
+.pledge-status.is-erro { color: var(--danger); }
+
+/* ---------- Telas maiores (novas seções) ---------- */
+@media (min-width: 480px) {
+  .quiz-options { grid-template-columns: 1fr 1fr; }
+  .quiz-next, .quiz-final .btn, .pledge-copy { width: auto; }
+}
+@media (min-width: 760px) {
+  .problems-grid { grid-template-columns: 1fr 1fr; }
+  .problem:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .quiz { padding: 32px; }
+}
+@media (min-width: 900px) {
+  .tools-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .pledge-grid { grid-template-columns: .8fr 1.2fr; gap: 56px; }
+}
+
 /* ---------- Celulares ---------- */
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body { overflow-x: hidden; -webkit-tap-highlight-color: rgba(242, 193, 78, .35); }
@@ -305,8 +495,6 @@ body { overflow-x: hidden; -webkit-tap-highlight-color: rgba(242, 193, 78, .35);
   .cta-row .btn, .form-actions .btn, .impact-section .btn { width: 100%; }
   .form-actions .btn { flex: 1 1 100%; }
   .card, .tip { padding: 20px 18px; }
-  .checklist { padding: 22px 16px; margin-top: 36px; }
-  .check-list li { padding: 12px 12px 12px 40px; }
   .res-big { overflow-wrap: anywhere; }
   .sdg-badge { margin-inline: auto; box-shadow: 6px 6px 0 var(--ink); }
   .sdg-disclaimer { max-width: none; }
@@ -324,14 +512,19 @@ body { overflow-x: hidden; -webkit-tap-highlight-color: rgba(242, 193, 78, .35);
 /* ---------- Telas maiores ---------- */
 @media (min-width: 640px) {
   .tips-grid { grid-template-columns: repeat(2, 1fr); }
-  .check-list { grid-template-columns: 1fr 1fr; }
+}
+
+/* Com 9 itens, o menu em linha precisa de ~1.215px (medido). Até 1279px o hambúrguer continua;
+   daí em diante o cabeçalho ganha mais largura e os itens ficam um pouco mais compactos. */
+@media (min-width: 1280px) {
+  .nav-toggle { display: none; }
+  .main-nav { position: static; display: block; background: none; border: 0; padding: 0; }
+  .main-nav ul { display: flex; gap: 0; }
+  .main-nav a { padding: 10px; font-size: .92rem; white-space: nowrap; }
+  .site-header .header-inner { max-width: 1320px; }
 }
 
 @media (min-width: 900px) {
-  .nav-toggle { display: none; }
-  .main-nav { position: static; display: block; background: none; border: 0; padding: 0; }
-  .main-nav ul { display: flex; gap: 2px; }
-  .main-nav a { padding: 10px 14px; font-size: .96rem; }
   .hero { padding: 72px 0 96px; }
   .hero-grid { grid-template-columns: 1.15fr .85fr; gap: 56px; }
   .section { padding: 96px 0; }

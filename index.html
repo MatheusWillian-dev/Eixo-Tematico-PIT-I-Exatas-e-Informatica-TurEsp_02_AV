@@ -37,6 +37,10 @@
           <li><a href="#calculadora">Calculadora de compras</a></li>
           <li><a href="#dicas">Dicas sustentáveis</a></li>
           <li><a href="#ods12">Sobre o ODS 12</a></li>
+          <li><a href="#problemas">Problemas</a></li>
+          <li><a href="#quiz">Quiz</a></li>
+          <li><a href="#simuladores">Simuladores</a></li>
+          <li><a href="#compromisso">Meu compromisso</a></li>
           <li><a href="#projeto">Sobre o projeto</a></li>
         </ul>
       </nav>
@@ -261,23 +265,6 @@
             <details><summary>Por que importa</summary><p>Muitos itens são usados poucas vezes. Compartilhar ou usar o que já existe dá o mesmo resultado com menos produção e menos gasto.</p></details>
           </li>
         </ul>
-
-        <!-- CHECKLIST -->
-        <section class="checklist card" id="checklist" aria-labelledby="check-titulo">
-          <div class="check-head">
-            <h3 id="check-titulo">Meu checklist de hábitos sustentáveis</h3>
-            <p>Seis hábitos simples para levar para o dia a dia e fazer um consumo mais consciente.</p>
-          </div>
-
-          <ul class="check-list">
-            <li>Planejar as compras antes de sair.</li>
-            <li>Evitar uma compra desnecessária.</li>
-            <li>Usar sacola ou recipiente reutilizável.</li>
-            <li>Consertar ou reutilizar um item em vez de trocá-lo.</li>
-            <li>Separar o lixo corretamente.</li>
-            <li>Evitar desperdiçar comida.</li>
-          </ul>
-        </section>
       </div>
     </section>
 
@@ -313,6 +300,171 @@
       </div>
     </section>
 
+    <!-- PROBLEMAS DO ODS 12 (Seção A) — os cartões são gerados pelo script.js a partir de PROBLEMAS[] -->
+    <section class="section problems-section" id="problemas" aria-labelledby="problemas-titulo">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="problemas-titulo">Os problemas que o ODS 12 quer resolver</h2>
+          <p>Cinco situações do dia a dia, com dados da ONU. Toque em um cartão para ler o número e o porquê. Se topar fazer algo, é só marcar.</p>
+        </div>
+
+        <ul class="problems-grid" id="problemas-lista"></ul>
+        <noscript><p class="note">Ative o JavaScript do navegador para abrir os cartões desta seção.</p></noscript>
+
+        <div class="sources-box">
+          <h3>De onde vêm os dados</h3>
+          <ul>
+            <li><a href="https://www.un.org/sustainabledevelopment/sustainable-consumption-production/" target="_blank" rel="noopener noreferrer">ONU – Objetivo 12</a>: origem de todos os números dos cartões.</li>
+            <li><a href="https://unstats.un.org/sdgs/report/2026/Goal-12/" target="_blank" rel="noopener noreferrer">The Sustainable Development Goals Report 2026 — Goal 12</a> (inglês): relatório anual da ONU, para quem quiser ir além.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ (Seção B) — as perguntas vêm do script.js (PERGUNTAS[]) -->
+    <section class="section calc-section quiz-section" id="quiz" aria-labelledby="quiz-titulo">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="quiz-titulo">Verdadeiro ou falso?</h2>
+          <p>Cinco afirmações sobre consumo consciente. Aqui o objetivo é aprender, não acertar tudo.</p>
+        </div>
+
+        <div class="quiz card" id="quiz-card">
+          <div class="quiz-top">
+            <p class="quiz-count" id="quiz-contador">Pergunta 1 de 5</p>
+            <div class="progress" id="quiz-progresso" role="progressbar" aria-label="Progresso do quiz" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0">
+              <span class="progress-fill" id="quiz-barra"></span>
+            </div>
+          </div>
+
+          <div id="quiz-pergunta-area">
+            <h3 class="quiz-statement" id="quiz-enunciado" tabindex="-1"></h3>
+            <div class="quiz-options">
+              <button class="btn btn-ghost quiz-btn" type="button" id="quiz-verdadeiro">Verdadeiro</button>
+              <button class="btn btn-ghost quiz-btn" type="button" id="quiz-falso">Falso</button>
+            </div>
+            <div class="quiz-feedback" id="quiz-feedback" role="status" tabindex="-1" hidden></div>
+            <button class="btn btn-primary quiz-next" type="button" id="quiz-proxima" hidden>Próxima</button>
+          </div>
+
+          <div class="quiz-final" id="quiz-final" hidden>
+            <h3 class="quiz-statement" id="quiz-final-titulo" tabindex="-1">Seu resultado</h3>
+            <p class="quiz-score" id="quiz-placar"></p>
+            <p class="quiz-message" id="quiz-mensagem"></p>
+            <button class="btn btn-primary" type="button" id="quiz-refazer">Refazer o quiz</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIMULADORES (Seções C e D) -->
+    <section class="section tools-section" id="simuladores" aria-labelledby="simuladores-titulo">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="simuladores-titulo">Faça as contas do descartável</h2>
+          <p>Dois simuladores rápidos. O que você mexe ou digita aqui fica só na sua tela e não é guardado nem enviado.</p>
+        </div>
+
+        <div class="tools-grid">
+          <!-- C: quanto descartável você usa? -->
+          <article class="card sim-card" id="simulador" aria-labelledby="sim-titulo">
+            <h3 id="sim-titulo">Quanto descartável você usa?</h3>
+            <p class="hint">Arraste os controles para o seu dia a dia. A conta é só a contagem de itens em 1 ano.</p>
+
+            <div class="range-field">
+              <div class="range-head">
+                <label for="sim-copos">Copos descartáveis por dia</label>
+                <output class="range-value" for="sim-copos" id="sim-copos-valor">2</output>
+              </div>
+              <input class="range" type="range" id="sim-copos" min="0" max="10" step="1" value="2">
+            </div>
+
+            <div class="range-field">
+              <div class="range-head">
+                <label for="sim-sacolas">Sacolas plásticas por semana</label>
+                <output class="range-value" for="sim-sacolas" id="sim-sacolas-valor">5</output>
+              </div>
+              <input class="range" type="range" id="sim-sacolas" min="0" max="30" step="1" value="5">
+            </div>
+
+            <div class="range-field">
+              <div class="range-head">
+                <label for="sim-garrafas">Garrafas plásticas por semana</label>
+                <output class="range-value" for="sim-garrafas" id="sim-garrafas-valor">3</output>
+              </div>
+              <input class="range" type="range" id="sim-garrafas" min="0" max="20" step="1" value="3">
+            </div>
+
+            <dl class="sim-totals">
+              <div><dt>Copos por ano</dt><dd id="sim-copos-total">730</dd></div>
+              <div><dt>Sacolas por ano</dt><dd id="sim-sacolas-total">260</dd></div>
+              <div><dt>Garrafas por ano</dt><dd id="sim-garrafas-total">156</dd></div>
+            </dl>
+
+            <p class="sim-sentence" id="sim-frase" aria-live="polite"></p>
+          </article>
+
+          <!-- D: custo por uso (ligado à moda descartável) -->
+          <article class="card cpu-card" id="custo-uso" aria-labelledby="cpu-titulo">
+            <h3 id="cpu-titulo">Custo por uso de uma roupa</h3>
+            <p class="hint">Roupa usada muitas vezes costuma sair mais barata do que parece. Veja quanto cada uso custa.</p>
+
+            <div class="field">
+              <label for="cpu-preco">Preço da roupa (R$)</label>
+              <div class="input-prefix">
+                <span aria-hidden="true">R$</span>
+                <input type="text" id="cpu-preco" inputmode="decimal" autocomplete="off" placeholder="120,00" aria-describedby="cpu-preco-erro">
+              </div>
+              <p class="error" id="cpu-preco-erro" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="cpu-usos">Quantas vezes você usou ou pretende usar</label>
+              <input type="text" id="cpu-usos" inputmode="numeric" autocomplete="off" placeholder="30" aria-describedby="cpu-usos-erro">
+              <p class="error" id="cpu-usos-erro" hidden></p>
+            </div>
+
+            <div class="cpu-result" id="cpu-resultado" aria-live="polite" aria-atomic="true">
+              <p class="cpu-empty" id="cpu-vazio">Preencha os dois campos para ver quanto cada uso custa.</p>
+              <div id="cpu-conteudo" hidden>
+                <p class="cpu-big" id="cpu-valor"></p>
+                <p class="cpu-calc" id="cpu-conta"></p>
+                <p class="cpu-message" id="cpu-mensagem"></p>
+                <p class="cpu-work" id="cpu-trabalho"></p>
+              </div>
+            </div>
+            <p class="note">R$ 5 por uso é só uma referência para puxar a conversa, não uma regra.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEU COMPROMISSO (Seção E) — junta as ações marcadas nos cartões da Seção A -->
+    <section class="section pledge-section" id="compromisso" aria-labelledby="compromisso-titulo">
+      <div class="container pledge-grid">
+        <div class="pledge-intro">
+          <h2 id="compromisso-titulo">Meu compromisso</h2>
+          <p>As ações que você marcou em “Os problemas que o ODS 12 quer resolver” aparecem aqui. Copie e compartilhe com quem você quiser.</p>
+        </div>
+
+        <div class="card pledge-card">
+          <div id="compromisso-vazio">
+            <p>Nada marcado por enquanto. Abra um cartão em <a href="#problemas">Os problemas do ODS 12</a> e marque pelo menos um hábito que você topa fazer.</p>
+          </div>
+
+          <div id="compromisso-conteudo" hidden>
+            <h3>Meu compromisso com o ODS 12:</h3>
+            <ul class="pledge-list" id="compromisso-lista"></ul>
+          </div>
+
+          <div class="pledge-actions">
+            <button class="btn btn-primary pledge-copy" type="button" id="compromisso-copiar" disabled>Copiar para compartilhar</button>
+          </div>
+          <p class="pledge-status" id="compromisso-status" role="status"></p>
+        </div>
+      </div>
+    </section>
+
     <!-- IMPACTO -->
     <section class="section impact-section" aria-labelledby="impacto-titulo">
       <div class="container impact-inner">
@@ -328,7 +480,7 @@
       <div class="container project-grid">
         <div>
           <h2 id="projeto-titulo">Sobre o projeto</h2>
-          <p>Este site foi desenvolvido como trabalho acadêmico universitário para promover a conscientização sobre o ODS 12 e o consumo responsável. Ele reúne uma calculadora que transforma preço em horas de trabalho, dicas práticas e um checklist de hábitos.</p>
+          <p>Este site foi desenvolvido como trabalho acadêmico universitário para promover a conscientização sobre o ODS 12 e o consumo responsável. Ele reúne uma calculadora que transforma preço em horas de trabalho, dicas práticas, um quiz e simuladores.</p>
           <p>Todo o conteúdo tem finalidade educativa. A calculadora é uma estimativa simples e não substitui uma análise financeira.</p>
         </div>
         <dl class="student-card card">
@@ -352,6 +504,10 @@
           <li><a href="#calculadora">Calculadora de compras</a></li>
           <li><a href="#dicas">Dicas sustentáveis</a></li>
           <li><a href="#ods12">Sobre o ODS 12</a></li>
+          <li><a href="#problemas">Problemas</a></li>
+          <li><a href="#quiz">Quiz</a></li>
+          <li><a href="#simuladores">Simuladores</a></li>
+          <li><a href="#compromisso">Meu compromisso</a></li>
           <li><a href="#projeto">Sobre o projeto</a></li>
         </ul>
       </nav>
